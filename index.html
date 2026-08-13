@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAINEL FF FULL RED VIP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        redvip: { 500: '#ff003c', 600: '#d60032', 800: '#660018', 900: '#2b000a', dark: '#0d0003' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #050002; color: #ffffff; font-family: 'Rajdhani', sans-serif; }
+        .glass-red { background: rgba(43, 0, 10, 0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255, 0, 60, 0.3); }
+    </style>
+</head>
+<body class="min-h-screen pb-10">
+
+    <header class="w-full p-4 glass-red flex justify-between items-center mb-6">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-redvip-500 rounded-lg flex items-center justify-center font-bold text-black font-orbitron">FF</div>
+            <h1 class="font-orbitron font-black text-xl text-redvip-500">PAINEL FULL RED</h1>
+        </div>
+        <span class="px-3 py-1 bg-redvip-900 border border-redvip-500 rounded-full text-xs text-redvip-500 font-bold">VIP ATIVO</span>
+    </header>
+
+    <main class="max-w-md mx-auto px-4 space-y-6">
+        <!-- BOTÃO DE INJEÇÃO (Visual) -->
+        <div class="glass-red p-5 rounded-2xl space-y-4">
+            <h2 class="font-orbitron font-bold text-redvip-500 text-lg">MÓDULO DE INJEÇÃO</h2>
+            <button id="btn-injetar" onclick="injetarVisual()" class="w-full py-4 bg-gray-800 hover:bg-redvip-800 border-2 border-dashed border-redvip-500 text-white font-orbitron font-bold text-lg rounded-xl transition">
+                <i class="fa-solid fa-code"></i> INJETAR CONFIGURAÇÕES
+            </button>
+            <div id="status-msg" class="hidden text-center py-2 text-sm text-yellow-400 font-bold animate-pulse"></div>
+        </div>
+
+        <!-- BOTÕES DE JOGO -->
+        <div class="glass-red p-5 rounded-2xl space-y-4">
+            <button onclick="abrirJogo('com.dts.freefireth')" class="w-full py-4 bg-redvip-500 text-white font-orbitron font-black text-lg rounded-xl shadow-lg">
+                ABRIR FREE FIRE
+            </button>
+        </div>
+    </main>
+
+    <script>
+        function injetarVisual() {
+            const btn = document.getElementById('btn-injetar');
+            const msg = document.getElementById('status-msg');
+            btn.disabled = true;
+            msg.classList.remove('hidden');
+            msg.innerText = "Injetando módulos Regedit Red...";
+            
+            setTimeout(() => {
+                msg.innerText = "Configurações aplicadas com sucesso!";
+                msg.classList.replace('text-yellow-400', 'text-green-500');
+            }, 2000);
+        }
+
+        function abrirJogo(pkg) {
+            window.location.href = "intent://#Intent;package=" + pkg + ";end";
+        }
+    </script>
+</body>
+</html>
