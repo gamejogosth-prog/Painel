@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAINEL FF FULL RED VIP</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        redvip: {
+                            500: '#ff003c',
+                            600: '#d60032',
+                            800: '#660018',
+                            900: '#2b000a',
+                            dark: '#0d0003'
+                        }
+                    },
+                    fontFamily: {
+                        orbitron: ['Orbitron', 'sans-serif'],
+                        rajdhani: ['Rajdhani', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0d0003;
+            background-image: 
+                radial-gradient(circle at 50% 0%, #ff003c40, transparent 70%),
+                radial-gradient(circle at 100% 100%, #66001850, transparent 50%);
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        .border-glow {
+            border: 1px solid #ff003c;
+            box-shadow: 0 0 15px rgba(255, 0, 60, 0.4), inset 0 0 10px rgba(255, 0, 60, 0.2);
+        }
+
+        .btn-red-glow {
+            background: linear-gradient(135deg, #ff003c, #990024);
+            box-shadow: 0 0 20px rgba(255, 0, 60, 0.6);
+        }
+
+        .btn-red-glow:hover {
+            box-shadow: 0 0 30px rgba(255, 0, 60, 0.9);
+        }
+
+        .glass-red {
+            background: rgba(43, 0, 10, 0.75);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 0, 60, 0.3);
+        }
+    </style>
+</head>
+<body class="text-white min-h-screen flex flex-col justify-between selection:bg-redvip-500 selection:text-white">
+
+    <!-- HEADER / TOPBAR -->
+    <header class="w-full glass-red border-b border-redvip-500/40 sticky top-0 z-50 px-4 py-3">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-redvip-500 flex items-center justify-center font-orbitron font-extrabold text-2xl text-black shadow-[0_0_15px_#ff003c]">
+                    FF
+                </div>
+                <div>
+                    <h1 class="font-orbitron font-black text-lg text-white tracking-widest flex items-center gap-2">
+                        PAINEL <span class="text-redvip-500 drop-shadow-[0_0_8px_#ff003c]">FULL VERMELHO</span>
+                    </h1>
+                    <p class="text-xs text-red-300">Injetor & Otimização VIP</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2 bg-redvip-900/80 px-3 py-1.5 rounded-full border border-redvip-500/50">
+                <span class="relative flex h-3 w-3">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-3 w-3 bg-redvip-500"></span>
+                </span>
+                <span class="text-xs font-bold text-red-200">VIP ATIVO</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTAINER PRINCIPAL -->
+    <main class="max-w-4xl mx-auto w-full px-4 py-8 flex-grow space-y-6">
+
+        <!-- TÍTULO DE IMPACTO -->
+        <div class="text-center space-y-2">
+            <h2 class="font-orbitron font-black text-3xl md:text-5xl uppercase tracking-wider text-white drop-shadow-[0_0_15px_#ff003c]">
+                REGEDIT & SENSI <span class="text-redvip-500">100% CAPA</span>
+            </h2>
+            <p class="text-sm text-red-200 max-w-lg mx-auto">
+                Ajustes de alta precisão para sensibilidade, DPI virtual e limpeza de cache do dispositivo.
+            </p>
+        </div>
+
+        <!-- PAINEL DE CONTROLES -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            <!-- COLUNA 1: AJUSTES DE SENSI E DPI -->
+            <div class="glass-red p-6 rounded-2xl border-glow space-y-6">
+                <h3 class="font-orbitron font-bold text-xl text-redvip-500 flex items-center gap-2 border-b border-redvip-500/30 pb-3">
+                    <i class="fa-solid fa-crosshairs"></i> AJUSTE DE MIRA
+                </h3>
+
+                <!-- SLIDER REGEDIT -->
+                <div class="space-y-2">
+                    <div class="flex justify-between text-sm font-bold">
+                        <span class="text-gray-200">Auxílio de Mira (Regedit Red)</span>
+                        <span class="text-redvip-500 font-mono" id="val-regedit">95%</span>
+                    </div>
+                    <input type="range" min="0" max="100" value="95" oninput="document.getElementById('val-regedit').innerText = this.value + '%'" 
+                        class="w-full accent-redvip-500 bg-redvip-900 h-2 rounded-lg cursor-pointer">
+                </div>
+
+                <!-- SLIDER DPI -->
+                <div class="space-y-2">
+                    <div class="flex justify-between text-sm font-bold">
+                        <span class="text-gray-200">DPI Virtual Forçada</span>
+                        <span class="text-redvip-500 font-mono" id="val-dpi">820 DPI</span>
+                    </div>
+                    <input type="range" min="360" max="1200" step="10" value="820" oninput="document.getElementById('val-dpi').innerText = this.value + ' DPI'" 
+                        class="w-full accent-redvip-500 bg-redvip-900 h-2 rounded-lg cursor-pointer">
+                </div>
+
+                <!-- SWITCHES DE ATIVAÇÃO -->
+                <div class="space-y-4 pt-2">
+                    <div class="flex items-center justify-between bg-redvip-900/50 p-3 rounded-xl border border-redvip-500/20">
+                        <div>
+                            <p class="text-sm font-bold text-white">Travar Mira na Cabeça</p>
+                            <p class="text-xs text-red-300">Evita que a mira passe da cabeça.</p>
+                        </div>
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" checked class="sr-only peer">
+                            <div class="w-11 h-6 bg-redvip-900 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-redvip-500"></div>
+                        </label>
+                    </div>
+
+                    <div class="flex items-center justify-between bg-redvip-900/50 p-3 rounded-xl border border-redvip-500/20">
+                        <div>
+                            <p class="text-sm font-bold text-white">Remover Recuo (No Recoil)</p>
+                            <p class="text-xs text-red-300">Estabiliza os disparos contínuos.</p>
+                        </div>
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" checked class="sr-only peer">
+                            <div class="w-11 h-6 bg-redvip-900 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-redvip-500"></div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COLUNA 2: BOTÕES DE EXECUÇÃO -->
+            <div class="glass-red p-6 rounded-2xl border-glow flex flex-col justify-between space-y-6">
+                <h3 class="font-orbitron font-bold text-xl text-redvip-500 flex items-center gap-2 border-b border-redvip-500/30 pb-3">
+                    <i class="fa-solid fa-rocket"></i> INJETAR & ABRIR
+                </h3>
+
+                <div class="space-y-4">
+                    <button onclick="injeteEAbra('com.dts.freefireth')" class="w-full btn-red-glow text-white font-orbitron font-black text-lg py-4 rounded-xl transition transform active:scale-95 flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-play text-2xl"></i> ABRIR FREE FIRE NORMAL
+                    </button>
+
+                    <button onclick="injeteEAbra('com.dts.freefiremax')" class="w-full bg-redvip-900 hover:bg-redvip-800 border border-redvip-500 text-white font-orbitron font-bold text-md py-3.5 rounded-xl transition transform active:scale-95 flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-fire text-xl text-redvip-500"></i> ABRIR FREE FIRE MAX
+                    </button>
+                </div>
+
+                <!-- MENSAGEM STATUS -->
+                <div id="status-msg" class="hidden p-3 bg-redvip-500/20 border border-redvip-500 rounded-xl text-center text-xs text-red-200 font-bold">
+                    Injetando módulos... Aguarde!
+                </div>
+
+                <div class="bg-redvip-900/80 p-4 rounded-xl border border-redvip-500/30 text-xs text-red-200 space-y-1">
+                    <p class="font-bold text-white"><i class="fa-solid fa-shield-halved text-redvip-500 mr-1"></i> Proteção Anti-Ban:</p>
+                    <p>Injeção executada no nível de sistema/DPI sem alteração de arquivos APK.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="w-full glass-red border-t border-redvip-500/30 py-4 text-center text-xs text-red-300">
+        PAINEL FULL RED VIP © 2026 - TODOS OS DIREITOS RESERVADOS
+    </footer>
+
+    <script>
+        function injeteEAbra(packageName) {
+            const msg = document.getElementById('status-msg');
+            msg.classList.remove('hidden');
+            msg.innerText = "Injetando Regedit Red & Otimizando RAM...";
+
+            setTimeout(() => {
+                msg.innerText = "Configurações aplicadas! Abrindo o jogo...";
+                setTimeout(() => {
+                    window.location.href = `intent://launch/#Intent;scheme=android-app;package=${packageName};end`;
+                }, 1000);
+            }, 1500);
+        }
+    </script>
+</bod>
+                    </html>
+
